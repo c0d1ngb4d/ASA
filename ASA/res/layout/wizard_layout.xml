@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+   <PreferenceCategory 
+       android:title="@string/wizard_title"
+       android:key="settings_key">
+       <Preference 
+           android:key="permissive_key"
+           android:summary="@string/permissive_mode_summary"
+           android:title="@string/permissive_mode"/>
+       <Preference 
+           android:key="secure_key"
+           android:summary="@string/secure_mode_summary"
+           android:title="@string/secure_mode"/>
+       <Preference 
+           android:key="paranoid_key"
+           android:summary="@string/paranoid_mode_summary"
+           android:title="@string/paranoid_mode"/>       
+   </PreferenceCategory>
+</PreferenceScreen>
