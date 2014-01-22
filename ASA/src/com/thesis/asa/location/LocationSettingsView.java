@@ -19,7 +19,6 @@ import com.thesis.asa.resourcemvc.ResourceView;
 
 public class LocationSettingsView extends ResourceView {
 
-	private LocationController controller;
 	private Fragment fragment;
 	private GoogleMap map;
 	private RadioGroup strategy;
@@ -33,7 +32,6 @@ public class LocationSettingsView extends ResourceView {
 		SupportMapFragment supportmapfragment = (SupportMapFragment)fragment;
 		map = supportmapfragment.getMap();
 		strategy = (RadioGroup) activity.findViewById(R.id.strategyradioGroup);
-		controller = new LocationController(this, (LocationSettings) model);
 	}
 
 	public void applyClicked() {

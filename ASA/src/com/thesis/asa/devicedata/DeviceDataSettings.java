@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 
 import com.thesis.asa.Utilities;
 import com.thesis.asa.Data.SecurityMode;

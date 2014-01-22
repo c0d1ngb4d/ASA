@@ -1,15 +1,13 @@
 package com.thesis.asa.resourcemvc; 
 
-import java.util.Arrays;
-
 import com.thesis.asa.R;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.Data.SecurityMode;
 import com.thesis.asa.devicedata.DeviceDataSettings;
 import com.thesis.asa.wifi.WifiSettings;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -89,7 +87,7 @@ public class EditableResourceView extends ResourceView {
 
 	}
 
-	@Override
+	@SuppressLint("DefaultLocale") @Override
 	public void displaySettingsFromConfiguration(Object[] settings) {
 		boolean customized = false;
 		if (model instanceof WifiSettings) 

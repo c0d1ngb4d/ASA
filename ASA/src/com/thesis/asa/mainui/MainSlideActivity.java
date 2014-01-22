@@ -26,6 +26,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -114,18 +115,18 @@ public class MainSlideActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
+    	int id = item.getItemId();
+        if (id == android.R.id.home) {
                 NavUtils.navigateUpTo(this, new Intent(this, this.getClass()));
                 return true;
-
-            case R.id.action_previous:
+        } else if (id == R.id.action_previous) {
                 pager.setCurrentItem(pager.getCurrentItem() - 1);
                 return true;
-
-            case R.id.action_next:
+        } else if (id == R.id.action_next) {
                 pager.setCurrentItem(pager.getCurrentItem() + 1);
                 return true;
+        } else {
+        	Log.d(Utilities.ERROR, "No item found for id: "+id);
         }
 
         return super.onOptionsItemSelected(item);

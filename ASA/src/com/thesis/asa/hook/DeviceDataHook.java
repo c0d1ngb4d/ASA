@@ -272,7 +272,6 @@ public class DeviceDataHook extends Hook {
 						public String invoked(Object hooked,
 								Object... args) throws Throwable {
 							String result = invoke(hooked, args);
-							String real = result;
 							if (result == null)
 								return result;
 							String name =  translateIntoColumnName(methodName);

@@ -3,7 +3,6 @@ package com.thesis.asa.hook;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -12,7 +11,6 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
-import android.net.wifi.ScanResult;
 import com.saurik.substrate.MS;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.provider.SettingsDB;

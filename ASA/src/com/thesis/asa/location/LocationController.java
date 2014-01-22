@@ -77,18 +77,15 @@ public class LocationController implements OnMarkerClickListener,
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-		switch (checkedId) {
-		case R.id.realRadioButton:
+		if (checkedId == R.id.realRadioButton) {
 			String[] reals = { "Real", "Real", "Real", "Real", "Real" };
 			model.setLocationSelectedSate(reals);
 			view.disableMap();
-			break;
-		case R.id.customRadioButton:
+		} else if (checkedId == R.id.customRadioButton) {
 			view.enableMap();
 			view.getMap().clear();
 			loadSavedConfigurations();
-			break;
-		case R.id.mapRadioButton:
+		} else if (checkedId == R.id.mapRadioButton) {
 			view.enableMap();
 			view.getMap().clear();
 			LatLng point;
@@ -103,9 +100,7 @@ public class LocationController implements OnMarkerClickListener,
 				model.setLocationSelectedSate(item.getLocationInfo());
 			}
 			view.setCurrentLocation(point);
-
-			break;
-		default:
+		} else{
 			Log.d(Utilities.ERROR, "No id found");
 		}
 	}

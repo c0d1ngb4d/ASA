@@ -143,7 +143,7 @@ public class LocationHook extends Hook {
 										// this case
 										Log.d(Utilities.DEBUG,
 												"_requestUpdates was called with PendingIntent, ASA");
-										PendingIntent intent = (PendingIntent) args[5];
+										// PendingIntent intent = (PendingIntent) args[5];
 									} catch (Exception e2) {
 										Log.d(Utilities.ERROR,
 												"The argument should be LocationListener or PendingIntent");

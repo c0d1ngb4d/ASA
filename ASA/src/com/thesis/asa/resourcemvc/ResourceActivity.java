@@ -1,12 +1,9 @@
 package com.thesis.asa.resourcemvc;
 
-import java.util.Arrays;
-
 import com.thesis.asa.R;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.mainui.SlidePageFragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

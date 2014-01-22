@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.thesis.asa.R;
-import com.thesis.asa.Utilities;
 import com.thesis.asa.resourcemvc.ResourceActivity;
 
 public class EditDeviceDataDialog {
