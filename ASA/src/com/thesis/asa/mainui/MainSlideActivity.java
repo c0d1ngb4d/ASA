@@ -1,3 +1,24 @@
+/*******************************************************************************
+ * Copyright (c) 2014 CodingBad.
+ *  All rights reserved.  This file is part of ASA.
+ *  
+ *  ASA is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *  
+ *  ASA is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *    
+ *  You should have received a copy of the GNU General Public License
+ *  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ *     
+ *  Contributors:
+ *     Ayelén Chavez - ashy.on.line@gmail.com
+ *     Joaquín Rinaudo - jmrinaudo@gmail.com
+ ******************************************************************************/
 /*
  * Copyright 2012 The Android Open Source Project
  *
@@ -26,7 +47,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -115,18 +135,18 @@ public class MainSlideActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	int id = item.getItemId();
-        if (id == android.R.id.home) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
                 NavUtils.navigateUpTo(this, new Intent(this, this.getClass()));
                 return true;
-        } else if (id == R.id.action_previous) {
+
+            case R.id.action_previous:
                 pager.setCurrentItem(pager.getCurrentItem() - 1);
                 return true;
-        } else if (id == R.id.action_next) {
+
+            case R.id.action_next:
                 pager.setCurrentItem(pager.getCurrentItem() + 1);
                 return true;
-        } else {
-        	Log.d(Utilities.ERROR, "No item found for id: "+id);
         }
 
         return super.onOptionsItemSelected(item);
