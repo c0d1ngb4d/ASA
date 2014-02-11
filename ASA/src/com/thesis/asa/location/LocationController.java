@@ -1,3 +1,24 @@
+/*******************************************************************************
+ * Copyright (c) 2014 CodingBad.
+ *  All rights reserved.  This file is part of ASA.
+ *  
+ *  ASA is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *  
+ *  ASA is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *    
+ *  You should have received a copy of the GNU General Public License
+ *  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ *     
+ *  Contributors:
+ *     Ayelén Chavez - ashy.on.line@gmail.com
+ *     Joaquín Rinaudo - jmrinaudo@gmail.com
+ ******************************************************************************/
 package com.thesis.asa.location;
 
 import java.util.List;
@@ -77,15 +98,18 @@ public class LocationController implements OnMarkerClickListener,
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-		if (checkedId == R.id.realRadioButton) {
+		switch (checkedId) {
+		case R.id.realRadioButton:
 			String[] reals = { "Real", "Real", "Real", "Real", "Real" };
 			model.setLocationSelectedSate(reals);
 			view.disableMap();
-		} else if (checkedId == R.id.customRadioButton) {
+			break;
+		case R.id.customRadioButton:
 			view.enableMap();
 			view.getMap().clear();
 			loadSavedConfigurations();
-		} else if (checkedId == R.id.mapRadioButton) {
+			break;
+		case R.id.mapRadioButton:
 			view.enableMap();
 			view.getMap().clear();
 			LatLng point;
@@ -100,7 +124,9 @@ public class LocationController implements OnMarkerClickListener,
 				model.setLocationSelectedSate(item.getLocationInfo());
 			}
 			view.setCurrentLocation(point);
-		} else{
+
+			break;
+		default:
 			Log.d(Utilities.ERROR, "No id found");
 		}
 	}
