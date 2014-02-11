@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thesis.asa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!--
+        This example's minimum API level is 14 due to the following recent
+        key platform features:
+
+        API 11: property animations (android.animations package)
+        API 12: ViewPropertyAnimator
+        API 14: View properties (android.util.Property) such as View.X and View.Y.
+    -->
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <permission
+        android:name="com.thesis.asa.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.thesis.asa.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="cydia.permission.SUBSTRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />		
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/batdroid"
+        android:label="@string/app_name"
+        android:process="com.thesis.asa"
+        android:theme="@android:style/Theme.Holo" >
+        <meta-data
+            android:name="com.saurik.substrate.main"
+            android:value="com.thesis.asa.hook.Main" />
+
+        <provider
+            android:name="com.thesis.asa.provider.ASASettings"
+            android:authorities="com.thesis.asa.settings"
+            android:exported="true" >
+        </provider>
+
+        <activity
+            android:name="com.thesis.asa.mainui.MainSlideActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDIK1ILVsgV13yXxiMvW0yMFomMXmH2q-s" />
+        <activity
+            android:name="com.thesis.asa.wizard.Wizard"
+            android:icon="@drawable/batdroid" >
+        </activity>
+        <activity
+            android:name="com.thesis.asa.resourcemvc.ResourcePerApplicationActivity"
+            android:icon="@drawable/batdroid" >
+        </activity>
+        <activity
+            android:name="com.thesis.asa.resourcemvc.DefaultResourceActivity"
+            android:icon="@drawable/batdroid" >
+        </activity>
+        <activity
+            android:name="com.thesis.asa.mainui.AdvancedSettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+    </application>
+
+</manifest>
