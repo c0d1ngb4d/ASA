@@ -1,6 +1,7 @@
-								ASA
+				ASA
 
 Release v1.0: 
+	-Needs rooted device and Cydia Substrate installed
 	-Stable in Android 4.0.4
 
 Android, an operating system based on the Linux kernel, has millions of
@@ -29,6 +30,9 @@ and scanned networks and, finally, we control every way an application can
 know the device’s location, not only using the gps but also the cell towers
 and configured wireless networks.
 
+Tested on a Xperia S Sony device and a Samsung Galaxy S3.
+
 Contributors:
 	Ayelén Chavez 	- ashy.on.line@gmail.com	
 	Joaquín Rinaudo - jmrinaudo@gmail.com
+
