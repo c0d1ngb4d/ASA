@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
    <PreferenceCategory 
        android:title="@string/settings_title"
@@ -17,3 +18,45 @@
            android:title="@string/thirdPartyLink"/>
    </PreferenceCategory>
 </PreferenceScreen>
+=======
+<!--
+  Copyright (c) 2014 CodingBad.
+   All rights reserved.  This file is part of ASA.
+   
+   ASA is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   ASA is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+     
+   You should have received a copy of the GNU General Public License
+   along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+      
+   Contributors:
+      Ayelén Chavez - ashy.on.line@gmail.com
+      Joaquín Rinaudo - jmrinaudo@gmail.com
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+   <PreferenceCategory 
+       android:title="@string/settings_title"
+       android:key="settings_key">
+       <CheckBoxPreference
+           android:key="advanced_key"
+           android:summary="@string/advanced"
+           android:title="@string/advanced"
+           android:defaultValue="false" />
+       <Preference 
+           android:key="system_key"
+           android:summary="@string/systemLink_summary"
+           android:title="@string/systemLink"/>
+       <Preference 
+           android:key="third_key"
+           android:summary="@string/thirdPartyLink_summary"
+           android:title="@string/thirdPartyLink"/>
+   </PreferenceCategory>
+</PreferenceScreen>
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
