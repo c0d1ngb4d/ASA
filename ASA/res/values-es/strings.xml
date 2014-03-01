@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright 2012 The Android Open Source Project
@@ -79,3 +80,91 @@
     <string name="edit_saved_wifi">Edit saved WiFi configuration</string>
     <string name="edit_saved_device_data">Edit saved Device Data configuration</string>
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2014 CodingBad.
+   All rights reserved.  This file is part of ASA.
+   
+   ASA is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   ASA is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+     
+   You should have received a copy of the GNU General Public License
+   along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+      
+   Contributors:
+      Ayelén Chavez - ashy.on.line@gmail.com
+      Joaquín Rinaudo - jmrinaudo@gmail.com
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Titles -->
+    <string name="app_name">A.S.A.</string>
+
+    <!-- Actions -->
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings">Settings</string>
+    <string name="advanced">Show system apps</string>
+    <string name="editCustom">Edit</string>
+    <string name="thirdPartyLink">Third party default configuration</string>
+    <string name="systemLink">System apps default configuration</string>
+    <string name="thirdPartyLink_summary">Configuration applied when none especified for a third party app</string>
+    <string name="systemLink_summary">Configuration applied when none especified for a system app</string>
+    <string name="settings_title">Advanced Settings</string>
+    <string name="wizard_title">Setup wizard</string>   
+    <string name="permissive_mode">Permisive Mode</string>
+    <string name="secure_mode">Secure Mode</string>
+    <string name="paranoid_mode">Paranoid Mode</string>
+    <string name="permissive_mode_summary">Trust everyone: allow them to access all requested resources</string>
+    <string name="secure_mode_summary">Trust system apps but not third party apps</string>
+    <string name="paranoid_mode_summary">Trust no one: mock access to all requested resources</string>    
+    <string name="applyDefault">Apply default</string>
+    <string name="random">Random</string>
+    <string name="fake">Fake</string>
+    <string name="real">Real</string>
+    <string name="custom">Use custom configuration</string>
+    <string name="deviceId">Device ID (IMEI, MEID or ESN)</string>
+    <string name="subscriberId">Unique subscriber ID (for example, the IMSI for a GSM phone)</string>
+    <string name="SIM">Serial number of the SIM card</string>
+    <string name="lineNumber">Phone number string for line 1 (for example, the MSISDN for a GSM phone)</string>
+    <string name="deviceId_short">Device ID</string>
+    <string name="subscriberId_short">Subscriber ID</string>
+    <string name="SIM_short">SIM card</string>
+    <string name="lineNumber_short_plus">Phone number +</string>
+    <string name="lineNumber_short">Phone number</string>
+    <string name="ipAddress">IP address from the current network</string>
+    <string name="bssid">Basic service set identifier (BSSID) of the current access point</string>
+    <string name="ssid">Service set identifier (SSID) of the current WiFi network</string>
+    <string name="macAddress">Device MAC address</string>
+    <string name="configuredNetworksHeader">Device saved networks</string>
+    <string name="scanResultsHeader">Current scanned networks</string>
+    <string name="customCheckbox">Use saved WiFi information</string>
+    <string name="customLocation">Use saved location information</string>
+    <string name="realLocation">Use real location information</string>
+    <string name="mapLocation">Use gmaps location information (works with GPS only)</string>
+    <string name="edit_ip">IP</string>
+    <string name="edit_ssid">SSID</string>
+    <string name="edit_bssid">BSSID</string>
+    <string name="edit_mac">MAC</string>
+    <string name="edit_real_scanned">Use scanned WiFis from saved configuration</string>
+    <string name="edit_fake_scanned">Use fake scanned networks</string>
+    <string name="edit_scanned_networks_title">Scanned WiFis</string>
+    <string name="edit_configured_networks_title">Configured Wifis</string>
+    <string name="edit_configuration">Edit Configuration</string>
+    <string name="saved_wifi">Select saved WiFi state</string>
+    <string name="edit_saved_wifi">Edit saved WiFi configuration</string>
+    <string name="edit_saved_device_data">Edit saved Device Data configuration</string>
+</resources>
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
