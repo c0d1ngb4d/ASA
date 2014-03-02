@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# This is my README
-=======
 				ASA
 
 Release v1.0: 
@@ -39,4 +36,3 @@ Contributors:
 	Ayelén Chavez 	- ashy.on.line@gmail.com	
 	Joaquín Rinaudo - jmrinaudo@gmail.com
 
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
