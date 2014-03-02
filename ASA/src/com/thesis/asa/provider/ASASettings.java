@@ -58,12 +58,12 @@ public class ASASettings extends ContentProvider {
 	  URI_MATCHER.addURI(AUTHORITY, WIFI_PATH, WIFI_CODE);
 	}
 
-  private SettingsDB contactsDB;
+  private SettingsDB settingsDB;
 
   @Override
   public boolean onCreate() {
     Log.d(TAG, "onCreate: "+CONTENT_URI.toString());
-    contactsDB = new SettingsDB(getContext());
+    settingsDB = new SettingsDB(getContext());
     return true;
   }
 
@@ -96,7 +96,7 @@ public class ASASettings extends ContentProvider {
   @Override
   public Cursor query(Uri uri, String[] projection, String selection,
           String[] selectionArgs, String sortOrder) {
-      SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+	  SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
       int uriType = URI_MATCHER.match(uri);
       switch (uriType) {
       case DEFAULT_CODE:
@@ -117,7 +117,7 @@ public class ASASettings extends ContentProvider {
       default:
           throw new IllegalArgumentException("Unknown URI");
       }
-      Cursor cursor = queryBuilder.query(contactsDB.getReadableDatabase(),
+      Cursor cursor = queryBuilder.query(settingsDB.getReadableDatabase(),
               projection, selection, selectionArgs, null, null, sortOrder);
       cursor.setNotificationUri(getContext().getContentResolver(), uri);
       return cursor;
