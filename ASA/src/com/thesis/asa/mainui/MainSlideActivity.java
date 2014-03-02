@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -19,6 +21,7 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 /*
  * Copyright 2012 The Android Open Source Project
  *
@@ -47,6 +50,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+<<<<<<< HEAD
+import android.util.Log;
+=======
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -135,6 +142,20 @@ public class MainSlideActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+<<<<<<< HEAD
+    	int id = item.getItemId();
+        if (id == android.R.id.home) {
+                NavUtils.navigateUpTo(this, new Intent(this, this.getClass()));
+                return true;
+        } else if (id == R.id.action_previous) {
+                pager.setCurrentItem(pager.getCurrentItem() - 1);
+                return true;
+        } else if (id == R.id.action_next) {
+                pager.setCurrentItem(pager.getCurrentItem() + 1);
+                return true;
+        } else {
+        	Log.d(Utilities.ERROR, "No item found for id: "+id);
+=======
         switch (item.getItemId()) {
             case android.R.id.home:
                 NavUtils.navigateUpTo(this, new Intent(this, this.getClass()));
@@ -147,6 +168,7 @@ public class MainSlideActivity extends FragmentActivity {
             case R.id.action_next:
                 pager.setCurrentItem(pager.getCurrentItem() + 1);
                 return true;
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -19,6 +21,7 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 package com.thesis.asa.location;
 
 import java.util.List;
@@ -98,6 +101,17 @@ public class LocationController implements OnMarkerClickListener,
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+<<<<<<< HEAD
+		if (checkedId == R.id.realRadioButton) {
+			String[] reals = { "Real", "Real", "Real", "Real", "Real" };
+			model.setLocationSelectedSate(reals);
+			view.disableMap();
+		} else if (checkedId == R.id.customRadioButton) {
+			view.enableMap();
+			view.getMap().clear();
+			loadSavedConfigurations();
+		} else if (checkedId == R.id.mapRadioButton) {
+=======
 		switch (checkedId) {
 		case R.id.realRadioButton:
 			String[] reals = { "Real", "Real", "Real", "Real", "Real" };
@@ -110,6 +124,7 @@ public class LocationController implements OnMarkerClickListener,
 			loadSavedConfigurations();
 			break;
 		case R.id.mapRadioButton:
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 			view.enableMap();
 			view.getMap().clear();
 			LatLng point;
@@ -124,9 +139,13 @@ public class LocationController implements OnMarkerClickListener,
 				model.setLocationSelectedSate(item.getLocationInfo());
 			}
 			view.setCurrentLocation(point);
+<<<<<<< HEAD
+		} else{
+=======
 
 			break;
 		default:
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 			Log.d(Utilities.ERROR, "No id found");
 		}
 	}

@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+package com.thesis.asa.contacts;
+
+public class ContactsGroupItem {	
+	private String label;
+	private String account;
+	private int groupId;
+
+	public ContactsGroupItem(String l, String a, int id){
+		label = l;
+		account = a;
+		groupId = id;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public int getGroupId() {
+		return groupId;
+	}
+}
+=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -44,3 +71,4 @@ public class ContactsGroupItem {
 		return groupId;
 	}
 }
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
