@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -19,6 +21,7 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 package com.thesis.asa.location;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -40,7 +43,10 @@ import com.thesis.asa.resourcemvc.ResourceView;
 
 public class LocationSettingsView extends ResourceView {
 
+<<<<<<< HEAD
+=======
 	private LocationController controller;
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 	private Fragment fragment;
 	private GoogleMap map;
 	private RadioGroup strategy;
@@ -54,7 +60,10 @@ public class LocationSettingsView extends ResourceView {
 		SupportMapFragment supportmapfragment = (SupportMapFragment)fragment;
 		map = supportmapfragment.getMap();
 		strategy = (RadioGroup) activity.findViewById(R.id.strategyradioGroup);
+<<<<<<< HEAD
+=======
 		controller = new LocationController(this, (LocationSettings) model);
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 	}
 
 	public void applyClicked() {

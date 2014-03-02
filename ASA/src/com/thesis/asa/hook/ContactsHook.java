@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -19,6 +21,7 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 package com.thesis.asa.hook;
 
 import java.lang.reflect.Method;
@@ -98,7 +101,10 @@ public class ContactsHook extends Hook {
 												throws Throwable {
 										
 										Context context = contentProvider.getContext();
+<<<<<<< HEAD
+=======
 										Boolean hooked = true;
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 										
 										Object[] filteredGroups = Hook.queryConfigurationFromASA(context, new ContactsSettings(context));
 										Integer[] groups = Arrays.copyOf(filteredGroups, filteredGroups.length, Integer[].class);
@@ -136,7 +142,10 @@ public class ContactsHook extends Hook {
 													//APARENTEMENTE GRUPOS
 													
 													selection = (String) args[2];
+<<<<<<< HEAD
+=======
 													hooked = false;
+>>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 												}
 											}
 										}
