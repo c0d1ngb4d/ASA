@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -21,16 +19,12 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 package com.thesis.asa.hook;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
 import java.util.Arrays;
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 import java.util.List;
 
 import android.content.Context;
@@ -39,10 +33,7 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
-<<<<<<< HEAD
-=======
 import android.net.wifi.ScanResult;
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 import com.saurik.substrate.MS;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.provider.SettingsDB;

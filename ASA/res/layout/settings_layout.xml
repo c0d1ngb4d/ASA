@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-   <PreferenceCategory 
-       android:title="@string/settings_title"
-       android:key="settings_key">
-       <CheckBoxPreference
-           android:key="advanced_key"
-           android:summary="@string/advanced"
-           android:title="@string/advanced"
-           android:defaultValue="false" />
-       <Preference 
-           android:key="system_key"
-           android:summary="@string/systemLink_summary"
-           android:title="@string/systemLink"/>
-       <Preference 
-           android:key="third_key"
-           android:summary="@string/thirdPartyLink_summary"
-           android:title="@string/thirdPartyLink"/>
-   </PreferenceCategory>
-</PreferenceScreen>
-=======
 <!--
   Copyright (c) 2014 CodingBad.
    All rights reserved.  This file is part of ASA.
@@ -59,4 +38,3 @@
            android:title="@string/thirdPartyLink"/>
    </PreferenceCategory>
 </PreferenceScreen>
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6

@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-   <PreferenceCategory 
-       android:title="@string/wizard_title"
-       android:key="settings_key">
-       <Preference 
-           android:key="permissive_key"
-           android:summary="@string/permissive_mode_summary"
-           android:title="@string/permissive_mode"/>
-       <Preference 
-           android:key="secure_key"
-           android:summary="@string/secure_mode_summary"
-           android:title="@string/secure_mode"/>
-       <Preference 
-           android:key="paranoid_key"
-           android:summary="@string/paranoid_mode_summary"
-           android:title="@string/paranoid_mode"/>       
-   </PreferenceCategory>
-</PreferenceScreen>
-=======
 <!--
   Copyright (c) 2014 CodingBad.
    All rights reserved.  This file is part of ASA.
@@ -57,4 +37,3 @@
            android:title="@string/paranoid_mode"/>       
    </PreferenceCategory>
 </PreferenceScreen>
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6

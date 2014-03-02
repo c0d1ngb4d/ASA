@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -21,7 +19,6 @@
  *     Ayelén Chavez - ashy.on.line@gmail.com
  *     Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 package com.thesis.asa.hook;
 
 import java.lang.reflect.Method;
@@ -296,10 +293,7 @@ public class DeviceDataHook extends Hook {
 						public String invoked(Object hooked,
 								Object... args) throws Throwable {
 							String result = invoke(hooked, args);
-<<<<<<< HEAD
-=======
 							String real = result;
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 							if (result == null)
 								return result;
 							String name =  translateIntoColumnName(methodName);

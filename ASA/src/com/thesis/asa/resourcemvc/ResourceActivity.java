@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-package com.thesis.asa.resourcemvc;
-
-=======
 /*******************************************************************************
  * Copyright (c) 2014 CodingBad.
  *  All rights reserved.  This file is part of ASA.
@@ -27,15 +23,11 @@ package com.thesis.asa.resourcemvc;
 
 import java.util.Arrays;
 
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 import com.thesis.asa.R;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.mainui.SlidePageFragment;
 
-<<<<<<< HEAD
-=======
 import android.app.Activity;
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -99,8 +91,4 @@ public abstract class ResourceActivity extends android.support.v4.app.FragmentAc
 		}
 		
 		protected abstract void loadSettings();
-<<<<<<< HEAD
 	}
-=======
-	}
->>>>>>> 46da12c22a5800376d8a52d1bb5ba4e85192a2b6
