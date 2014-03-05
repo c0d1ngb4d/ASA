@@ -21,6 +21,7 @@
  ******************************************************************************/
 package com.thesis.asa.hook;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.security.MessageDigest;
@@ -300,7 +301,7 @@ public class DeviceDataHook extends Hook {
 							String process = Utilities.getProcessNameByPid(Binder.getCallingPid());
 							if (process.contains("thesis.asa"))
 								return result;
-							
+														
 							Context context = getContext(hooked);
 							Object[] properties = Hook
 									.queryConfigurationFromASA(context,
@@ -349,25 +350,22 @@ public class DeviceDataHook extends Hook {
 	
 	protected static Context getContext(Object owner) {
 		/* WATCH OUT, IT USES A PRIVATE VARIABLE */
-		java.lang.reflect.Field field;
+		Method method = null;
 		Context context = null;
 		try {
 			if (owner.getClass().getName().contains("TelephonyManager"))
-				field = owner.getClass().getDeclaredField("sContext");
+				return Hook.context;
 			else if (owner.getClass().getName().contains("PhoneBase")) 
-				field = owner.getClass().getDeclaredField("mContext");
-				else
-					field = owner.getClass().getSuperclass().getDeclaredField("mContext");
-			Boolean accessible = field.isAccessible();
-			field.setAccessible(true);
-			context = (Context) field.get(owner);
-			field.setAccessible(accessible);
+				method = owner.getClass().getMethod("getContext" );
+			else
+					method = owner.getClass().getSuperclass().getMethod("getContext" );
+			
+		return (Context) method.invoke(owner);
 		} catch (Exception e) {
 			String error = Log.getStackTraceString(e);
 			Log.d(Utilities.ERROR, "Error: " + error);
 		}
-
-		return context;
+		return null;
 	}
 
 	public static class PullTasksThread extends Thread {
@@ -382,5 +380,4 @@ public class DeviceDataHook extends Hook {
 		   }
 		}
 }
-
 
