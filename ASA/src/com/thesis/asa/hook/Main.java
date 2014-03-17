@@ -31,5 +31,6 @@ public class Main {
 		DeviceDataHook.hook();
 		WifiHook.hook();
 		LocationHook.hook();
+		InternetHook.hook();
 	}	
 }

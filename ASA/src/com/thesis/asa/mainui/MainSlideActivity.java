@@ -51,6 +51,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.thesis.asa.Data;
 import com.thesis.asa.Data.SecurityMode;
@@ -77,6 +78,7 @@ public class MainSlideActivity extends FragmentActivity {
             editor.putBoolean(IS_FIRST_RUN, false);
             editor.putInt(Utilities.SELECTED_MODE, SecurityMode.toInteger(mode));
             editor.commit();
+            Toast.makeText(this, "Finished configuring ASA", Toast.LENGTH_SHORT).show();
         }
     }
     
@@ -132,6 +134,7 @@ public class MainSlideActivity extends FragmentActivity {
                         ? R.string.action_finish
                         : R.string.action_next);
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+
         return true;
     }
 
