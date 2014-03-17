@@ -1,3 +1,6 @@
+ASA/gen/*
+ASA/bin/*
 ASA/.*
 google-play-services_lib/bin/*
 google-play-services_lib/.settings/*
+*.class
