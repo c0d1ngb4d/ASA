@@ -82,7 +82,6 @@ public class InternetHook extends Hook {
 											.queryConfigurationFromASA(context,
 													new InternetSettings(context));
 
-								Log.d("DEBUG",Arrays.toString(properties));
 								if( ((String)properties[0]).equals("Disable")){
 									args[0] = false;
 								}
