@@ -84,4 +84,7 @@
     <string name="saved_wifi">Select saved WiFi state</string>
     <string name="edit_saved_wifi">Edit saved WiFi configuration</string>
     <string name="edit_saved_device_data">Edit saved Device Data configuration</string>
+    <string name="disableJS">Disable</string>
+    <string name="enableJS">Enable</string>
+    <string name="JavascriptEnable">Allow execution of Javascript code</string>
 </resources>

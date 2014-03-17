@@ -23,7 +23,6 @@
 
 package com.thesis.asa.hook;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.security.MessageDigest;
@@ -32,9 +31,7 @@ import java.util.List;
 import java.util.Random;
 
 import android.content.ContentProvider;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.os.Binder;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.telephony.CellLocation;
@@ -43,7 +40,6 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
-import android.webkit.WebStorage.Origin;
 
 import com.saurik.substrate.MS;
 import com.thesis.asa.Utilities;

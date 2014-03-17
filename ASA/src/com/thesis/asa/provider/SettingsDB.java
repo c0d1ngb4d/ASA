@@ -33,7 +33,7 @@ import android.util.Log;
 
 public class SettingsDB extends SQLiteOpenHelper {
     public static final String DB_NAME = "settings.db";
-    public static final int DB_VERSION = 21;
+    public static final int DB_VERSION = 22;
     public static final String TABLE = "status";
     
     // Contacts Settings DB
@@ -92,8 +92,14 @@ public class SettingsDB extends SQLiteOpenHelper {
     private static final String CREATE_LOCATION_STATES_TABLE = "create table "+ LOCATION_STATES_TABLE +" (" + COL_LATITUDE + " text, "+ 
     	    COL_LONGITUDE + " text, "+ COL_CELL_LOCATION + " text, "+ COL_NEIGHBORING_CELL_INFO + " text not null )";
 	       
+ // Internet Settings DB
+    public static final String INTERNET_TABLE = "internet_settings";
+    public static final String COL_JAVASCRIPT_ENABLED = "setJavascriptEnabled";
+    private static final String CREATE_INTERNET_TABLE = "create table "+ INTERNET_TABLE+" ("+ COL_PKG_NAME
+    + " text primary key, " + COL_PROCESSES_NAMES + " text not null, " + COL_JAVASCRIPT_ENABLED + " text )";
+    public static final String[] INTERNET_TABLE_COLUMNS = {COL_JAVASCRIPT_ENABLED};
+
     
-       
     // Default Settings DB
     public static final String DEFAULT_TABLE = "default_settings";
     public static final String COL_PERMISSION = "permission";
@@ -118,6 +124,8 @@ public class SettingsDB extends SQLiteOpenHelper {
     	db.execSQL(CREATE_WIFI_STATES_TABLE);
     	db.execSQL(CREATE_LOCATION_TABLE);
     	db.execSQL(CREATE_LOCATION_STATES_TABLE);
+    	db.execSQL(CREATE_INTERNET_TABLE);
+
     }
 
     @Override
@@ -131,6 +139,8 @@ public class SettingsDB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + WIFI_STATES_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + LOCATION_TABLE);
     	db.execSQL("DROP TABLE IF EXISTS " + LOCATION_STATES_TABLE);
+    	db.execSQL("DROP TABLE IF EXISTS " + INTERNET_TABLE);
+
         onCreate(db);
     }
     
@@ -144,6 +154,7 @@ public class SettingsDB extends SQLiteOpenHelper {
 		tableByPermission.put(Manifest.permission.READ_PHONE_STATE, DEVICE_DATA_TABLE);
 		tableByPermission.put(Manifest.permission.ACCESS_COARSE_LOCATION, LOCATION_TABLE);
 		tableByPermission.put(Manifest.permission.ACCESS_FINE_LOCATION, LOCATION_TABLE);
+		tableByPermission.put(Manifest.permission.INTERNET, INTERNET_TABLE);
     }
 	
 	public static String getTableNameForPermission(String permission) {

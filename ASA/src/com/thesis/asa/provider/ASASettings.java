@@ -40,6 +40,8 @@ public class ASASettings extends ContentProvider {
   static final String WIFI_PATH = "wifi_settings";
   static final String LOCATION_PATH = "location_settings"; 
   static final String DEVICE_DATA_PATH = "device_data_settings";
+  static final String INTERNET_PATH = "internet_settings"; 
+
   public static final Uri CONTENT_URI = Uri.parse("content://"+AUTHORITY);
   static final String SINGLE_RECORD_MIME_TYPE = "vnd.android.cursor.item/vnd.com.thesis.asa.status";
   static final String MULTIPLE_RECORDS_MIME_TYPE = "vnd.android.cursor.dir/vnd.com.thesis.asa.status";
@@ -49,6 +51,7 @@ public class ASASettings extends ContentProvider {
   private static final int LOCATION_CODE = 2; 
   private static final int DEVICE_DATA_CODE = 3;
   private static final int WIFI_CODE = 4;
+  private static final int INTERNET_CODE = 5;
 
 	//prepare the UriMatcher
 	static {
@@ -58,6 +61,7 @@ public class ASASettings extends ContentProvider {
 	  URI_MATCHER.addURI(AUTHORITY, LOCATION_PATH, LOCATION_CODE);
 	  URI_MATCHER.addURI(AUTHORITY, DEVICE_DATA_PATH, DEVICE_DATA_CODE);
 	  URI_MATCHER.addURI(AUTHORITY, WIFI_PATH, WIFI_CODE);
+	  URI_MATCHER.addURI(AUTHORITY, INTERNET_PATH, INTERNET_CODE);
 	}
 
   private SettingsDB settingsDB;
@@ -115,6 +119,9 @@ public class ASASettings extends ContentProvider {
           break;
       case WIFI_CODE:
     	  queryBuilder.setTables(SettingsDB.WIFI_TABLE);
+          break;    
+      case INTERNET_CODE:
+    	  queryBuilder.setTables(SettingsDB.INTERNET_TABLE);
           break;    
       default:
           throw new IllegalArgumentException("Unknown URI");

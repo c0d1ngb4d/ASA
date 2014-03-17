@@ -74,6 +74,7 @@ public class Data {
     	permissions.put(1, Arrays.asList(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION));
     	permissions.put(2, Arrays.asList(Manifest.permission.READ_PHONE_STATE));
     	permissions.put(3, Arrays.asList(Manifest.permission.ACCESS_WIFI_STATE));
+    	permissions.put(4, Arrays.asList(Manifest.permission.INTERNET));
     }
     
     public static List<String> permissionsForPage(Integer page) {
@@ -88,6 +89,7 @@ public class Data {
 		titles.put(1, "Location");
 		titles.put(2, "Device data");
 		titles.put(3, "Wifi info");
+		titles.put(4, "Internet access");
     }
 	
 	public static String titleForPage(Integer page) {
@@ -103,6 +105,7 @@ public class Data {
 		resourceClasses.put(1, "com.thesis.asa.location.LocationSettings");
 		resourceClasses.put(2, "com.thesis.asa.devicedata.DeviceDataSettings");
 		resourceClasses.put(3, "com.thesis.asa.wifi.WifiSettings"); 
+		resourceClasses.put(4, "com.thesis.asa.internet.InternetSettings");
     }
 	
 	public static String getResourceFor(Integer page) {
