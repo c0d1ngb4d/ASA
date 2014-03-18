@@ -19,7 +19,6 @@
  * Ayelén Chavez - ashy.on.line@gmail.com
  * Joaquín Rinaudo - jmrinaudo@gmail.com
  ******************************************************************************/
- 
 
 package com.thesis.asa.hook;
 
@@ -28,72 +27,87 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 import android.webkit.WebView;
 
 import com.saurik.substrate.MS;
+import com.thesis.asa.Utilities;
 import com.thesis.asa.internet.InternetSettings;
 
 public class InternetHook extends Hook {
 
-	public static void hook(){
-		int sdk = android.os.Build.VERSION.SDK_INT;
-		
-		final String websettings = sdk < android.os.Build.VERSION_CODES.JELLY_BEAN ?
-				"android.webkit.WebSettings" :"android.webkit.WebSettingsClassic";
-	
+	public static void hook() {
+		final String websettings = Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN ? "android.webkit.WebSettings"
+				: "android.webkit.WebSettingsClassic";
+
 		MS.hookClassLoad(websettings, new MS.ClassLoadHook() {
-			public void classLoaded(Class<?> _class) {
+			public void classLoaded(Class<?> webSettings) {
 
 				Method method;
 				Constructor constructor;
 				try {
-					constructor = _class.getDeclaredConstructor(Context.class,WebView.class);
-					method = _class.getMethod("setJavaScriptEnabled",
-							boolean.class);
-				} catch (NoSuchMethodException e) {
-					constructor =  null;
+					Log.d(Utilities.DEBUG, "class is " + webSettings.getName());
+					Log.d(Utilities.DEBUG,
+							"constructors are  "
+									+ Arrays.toString(webSettings
+											.getDeclaredConstructors()));
+
+					if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+						constructor = webSettings.getConstructor(Context.class,
+								WebView.class);
+					else {
+						Class webViewClassic = Class.forName("android.webkit.WebViewClassic"); 
+						constructor = webSettings.getDeclaredConstructor(Context.class,
+								webViewClassic);
+					}
+
+					method = webSettings.getMethod("setJavaScriptEnabled",	boolean.class);
+				} catch (Exception e) {
+					constructor = null;
 					method = null;
-					Log.d("DEBUG", "No such method or constructor for" + websettings);
-
+					Log.d(Utilities.ERROR, "No such method or constructor for "
+							+ websettings);
+					Log.d(Utilities.ERROR, Log.getStackTraceString(e));
 				}
 
-				if(constructor != null){
+				if (constructor != null) {
 
-						MS.hookMethod(_class, constructor,
-								new MS.MethodAlteration<Object, Void>() {
-									public Void invoked(Object hooked,
-											Object... args) throws Throwable {
-									context = (Context) args[0];
-									return invoke(hooked, args);
-
-									}
-								});
-								
-				}
-				
-				if (method != null) {
-					MS.hookMethod(_class, method,
+					MS.hookMethod(webSettings, constructor,
 							new MS.MethodAlteration<Object, Void>() {
 								public Void invoked(Object hooked,
 										Object... args) throws Throwable {
-								
-								Object[] properties = Hook
-											.queryConfigurationFromASA(context,
-													new InternetSettings(context));
-
-								if( ((String)properties[0]).equals("Disable")){
-									args[0] = false;
-								}
-								return invoke(hooked, args);
+									context = (Context) args[0];
+									return invoke(hooked, args);
 
 								}
 							});
-				}				
+
+				}
+
+				if (method != null) {
+					MS.hookMethod(webSettings, method,
+							new MS.MethodAlteration<Object, Void>() {
+								public Void invoked(Object hooked,
+										Object... args) throws Throwable {
+
+									Object[] properties = Hook
+											.queryConfigurationFromASA(context,
+													new InternetSettings(
+															context));
+
+									if (((String) properties[0])
+											.equals("Disable"))
+										args[0] = false;
+
+									return invoke(hooked, args);
+								}
+							});
+				}
 
 			}
-		});		
-		
+		});
+
 	}
-	
+
 }

@@ -25,6 +25,9 @@ package com.thesis.asa.hook;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
+import android.os.Build;
+import android.os.CancellationSignal;
+import android.annotation.SuppressLint;
 import android.content.ContentProvider;
 import android.content.Context;
 import android.database.Cursor;
@@ -72,16 +75,23 @@ public class ContactsHook extends Hook {
 	public static void hook() {
 		MS.hookClassLoad("com.android.providers.contacts.ContactsProvider2",
 				new MS.ClassLoadHook() {
+					@SuppressLint("NewApi")
 					public void classLoaded(Class<?> contentProvider) {
 						Method query;
 						try {
-							Class[] params = new Class[5];
+							Class[] params;
+							if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+								params = new Class[5];
+							else {
+								params = new Class[6];
+								params[5] = CancellationSignal.class;
+							}
+							
 							params[0] = Uri.class;
 							params[1] = String[].class;
 							params[2] = String.class;
 							params[3] = String[].class;
 							params[4] = String.class;
-
 							query = contentProvider.getMethod("query", params);
 						} catch (NoSuchMethodException e) {
 							query = null;
@@ -158,8 +168,12 @@ public class ContactsHook extends Hook {
 		return "content://com.thesis.asa.settings/contacts_settings";
 	}
 	
-	private static String getContactsByGroups(MS.MethodAlteration<ContentProvider, Cursor> hookedMethod, ContentProvider contentProvider, Integer[] filteredGroups) throws Throwable {		
-		Object[] groupsArgs = new Object[5];
+	private static String getContactsByGroups(MS.MethodAlteration<ContentProvider, Cursor> hookedMethod, ContentProvider contentProvider, Integer[] filteredGroups) throws Throwable {
+		Object[] groupsArgs;
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+			groupsArgs = new Object[5];
+		else 
+			groupsArgs = new Object[6];
 		groupsArgs[0] = ContactsContract.Data.CONTENT_URI;
 		groupsArgs[1] = new String[] {
 				ContactsContract.Data.CONTACT_ID,
