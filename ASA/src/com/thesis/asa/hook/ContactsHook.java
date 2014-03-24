@@ -116,6 +116,7 @@ public class ContactsHook extends Hook {
 										String contactsInGroups = ContactsHook.getContactsByGroups(this, contentProvider, groups);
 										String selection = (String) args[2];
 										Uri id = (Uri) args[0];
+										
 										if (selection == null || selection.replaceAll("\\s","").length() == 0){
 											selection = "";
 										}
@@ -153,7 +154,7 @@ public class ContactsHook extends Hook {
 										}
 
 										args[2] = selection;
-
+										
 										Cursor result = invoke(contentProvider, args);
 										
 										return result;
@@ -169,18 +170,22 @@ public class ContactsHook extends Hook {
 	}
 	
 	private static String getContactsByGroups(MS.MethodAlteration<ContentProvider, Cursor> hookedMethod, ContentProvider contentProvider, Integer[] filteredGroups) throws Throwable {
+
 		Object[] groupsArgs;
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN){
 			groupsArgs = new Object[5];
-		else 
+		}
+		else {
 			groupsArgs = new Object[6];
+		}
+		
 		groupsArgs[0] = ContactsContract.Data.CONTENT_URI;
 		groupsArgs[1] = new String[] {
 				ContactsContract.Data.CONTACT_ID,
 				ContactsContract.Data.DATA1 };
 		groupsArgs[2] = ContactsContract.Data.MIMETYPE + "=?";
 		groupsArgs[3] = new String[] { ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE };
-	
+		
 		Cursor contactsByGroup =  hookedMethod.invoke(
 				contentProvider,
 				groupsArgs);
@@ -188,7 +193,7 @@ public class ContactsHook extends Hook {
 		String contactsInGroups = new String();
 		contactsInGroups = contactsInGroups
 				+ "(";
-	
+		
 		if (contactsByGroup != null
 			&& contactsByGroup
 					.moveToFirst()) {
@@ -214,7 +219,7 @@ public class ContactsHook extends Hook {
 			}
 		} while (contactsByGroup
 				.moveToNext());
-
+		
 		if (contactsInGroups
 				.length() > 1)
 			contactsInGroups = contactsInGroups
@@ -223,8 +228,10 @@ public class ContactsHook extends Hook {
 							contactsInGroups
 									.length() - 1);
 
+		}
+		
 		contactsInGroups = contactsInGroups
-				+ ")"; }
+				+ ")"; 
 		if (contactsByGroup != null)
 			contactsByGroup.close();
 
