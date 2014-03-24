@@ -64,6 +64,7 @@ public class Utilities {
 
 	public static final String FIRST_RUN_PREFERENCE = "firstRunPreference";
 	public static final String SELECTED_MODE = "selectedMode";
+	public static final long WIFI_CACHE_TIME_THRESHOLD = 5000;
 
 	public static void loadDefaultConfigurationForMode(Context context,
 			final SecurityMode mode) {

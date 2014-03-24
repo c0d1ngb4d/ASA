@@ -27,9 +27,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -43,6 +45,8 @@ import com.thesis.asa.wifi.WifiSettings;
 
 public class WifiHook extends Hook {
 	protected static final String[] columns = SettingsDB.WIFI_TABLE_COLUMNS;
+	protected static long lastTimeChecked = 0;
+	protected static Object[] properties;
 
 	// protected static Context currentContext = null;
 
@@ -141,7 +145,8 @@ public class WifiHook extends Hook {
 						hookWifiScanResultsMethod(wifiManager);
 					}
 				});
-
+	
+		
 		MS.hookClassLoad("android.net.wifi.WifiInfo", new MS.ClassLoadHook() {
 			public void classLoaded(Class<?> wifiInfo) {
 				hookWifiMethod(wifiInfo, "getBSSID");
@@ -350,6 +355,8 @@ public class WifiHook extends Hook {
 		}
 	}
 
+	protected Object configuration;
+
 	private static void hookWifiMethod(Class<?> clazz, final String methodName) {
 
 		Method method;
@@ -365,14 +372,21 @@ public class WifiHook extends Hook {
 					new MS.MethodAlteration<WifiInfo, Object>() {
 						public Object invoked(final WifiInfo hooked,
 								final Object... args) throws Throwable {
+																	
 							Object result = invoke(hooked, args);
-
+							
 							if (result == null)
 								return result;
+							
+							long time = new Date().getTime();
+							if(properties == null || time - lastTimeChecked > Utilities.WIFI_CACHE_TIME_THRESHOLD){
+								lastTimeChecked = time;
+								properties  = getProperties(WifiSettings.class
+										.getName());
+							}
 
-							Object[] properties = getProperties(WifiSettings.class
-									.getName());
-
+							Log.d("DEBUG","Properties are"+	Arrays.toString(properties));
+							
 							int index = 0;
 							for (Object property : properties) {
 								String column = columns[index];
@@ -390,7 +404,7 @@ public class WifiHook extends Hook {
 									break;
 								}
 							}
-
+							
 							if (result == null || result == "null")
 								result = "";
 							return result;
