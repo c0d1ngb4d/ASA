@@ -29,9 +29,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.Settings.Secure;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 
 import com.thesis.asa.Utilities;
 import com.thesis.asa.Data.SecurityMode;
@@ -39,7 +36,6 @@ import com.thesis.asa.provider.SettingsDB;
 import com.thesis.asa.resourcemvc.Resource;
 
 public class InternetSettings extends Resource {
-	private InternetItem internetSelectedSate;
 
 	public InternetSettings(Context c) {
 		super(c);
@@ -60,8 +56,7 @@ public class InternetSettings extends Resource {
 	public Object[] loadSettingsFromConfiguration(Object configuration) {
 		String[] internetConfiguration = Utilities
 				.stringToArray((String) configuration);
-		setSelectedSate(internetConfiguration);
-
+	
 		return internetConfiguration;
 	}
 	
@@ -76,10 +71,6 @@ public class InternetSettings extends Resource {
 			values.put(columns[index], (String) selectedConfigurations[index]);
 
 		return values;
-	}
-
-	public void setSelectedSate(String[] strings) {
-		internetSelectedSate = new InternetItem(strings);
 	}
 
 	@Override

@@ -23,11 +23,6 @@
  
 package com.thesis.asa.devicedata;
 
-import java.util.Arrays;
-
-import android.util.Log;
-
-import com.thesis.asa.Utilities;
 
 public class DeviceDataInfoItem {
 

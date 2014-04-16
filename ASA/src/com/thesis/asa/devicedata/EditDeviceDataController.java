@@ -23,12 +23,9 @@
  
 package com.thesis.asa.devicedata;
 
-import com.thesis.asa.Utilities;
-
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;

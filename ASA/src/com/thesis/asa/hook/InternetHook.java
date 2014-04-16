@@ -24,7 +24,6 @@ package com.thesis.asa.hook;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 import android.content.Context;
 import android.os.Build;
@@ -47,12 +46,6 @@ public class InternetHook extends Hook {
 				Method method;
 				Constructor constructor;
 				try {
-					Log.d(Utilities.DEBUG, "class is " + webSettings.getName());
-					Log.d(Utilities.DEBUG,
-							"constructors are  "
-									+ Arrays.toString(webSettings
-											.getDeclaredConstructors()));
-
 					if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
 						constructor = webSettings.getConstructor(Context.class,
 								WebView.class);

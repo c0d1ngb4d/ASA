@@ -22,9 +22,6 @@
  
 
 package com.thesis.asa.internet;
-
-import android.view.View;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 

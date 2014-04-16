@@ -24,15 +24,12 @@
 package com.thesis.asa.wifi;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.util.Log;
 
 import com.thesis.asa.Utilities;
 import com.thesis.asa.Data.SecurityMode;

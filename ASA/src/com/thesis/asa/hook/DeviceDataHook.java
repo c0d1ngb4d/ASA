@@ -56,7 +56,7 @@ public class DeviceDataHook extends Hook {
 			"baseStationLatitude", "baseStationLongitude", "systemId",
 			"networkId" };
 	private static final String[] gsmKeys = { "lac", "cid", "psc" };
-
+	
 	public static void hookAndroidId() {
 
 		MS.hookClassLoad("com.android.providers.settings.SettingsProvider",
@@ -95,7 +95,7 @@ public class DeviceDataHook extends Hook {
 												try {
 														result.putString("value", getResultByASAConfiguration(
 																			"getString",
-																			result.getString("value"),
+																			original,
 																			hooked,
 																			context));
 												} catch (Exception e) {
@@ -421,7 +421,6 @@ public class DeviceDataHook extends Hook {
 	protected static Context getContext(Object owner) {
 		/* WATCH OUT, IT USES A PRIVATE VARIABLE */
 		Method method = null;
-		Context context = null;
 		try {
 			if (owner.getClass().getName().contains("TelephonyManager"))
 				return Hook.context;

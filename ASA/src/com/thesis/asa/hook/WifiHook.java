@@ -26,18 +26,15 @@ package com.thesis.asa.hook;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
-import android.net.wifi.ScanResult;
 import com.saurik.substrate.MS;
 import com.thesis.asa.Utilities;
 import com.thesis.asa.provider.SettingsDB;
@@ -146,7 +143,7 @@ public class WifiHook extends Hook {
 					}
 				});
 	
-		
+
 		MS.hookClassLoad("android.net.wifi.WifiInfo", new MS.ClassLoadHook() {
 			public void classLoaded(Class<?> wifiInfo) {
 				hookWifiMethod(wifiInfo, "getBSSID");
@@ -233,7 +230,7 @@ public class WifiHook extends Hook {
 
 							if (result == null)
 								return null;
-
+							
 							Object[] properties = getProperties(WifiSettings.class
 									.getName());
 
@@ -297,6 +294,7 @@ public class WifiHook extends Hook {
 					new MS.MethodAlteration<WifiManager, List<Object>>() {
 						public List<Object> invoked(final WifiManager hooked,
 								final Object... args) throws Throwable {
+							
 							List<Object> result = invoke(hooked, args);
 							
 							if (result == null)
@@ -372,7 +370,7 @@ public class WifiHook extends Hook {
 					new MS.MethodAlteration<WifiInfo, Object>() {
 						public Object invoked(final WifiInfo hooked,
 								final Object... args) throws Throwable {
-																	
+							
 							Object result = invoke(hooked, args);
 							
 							if (result == null)
@@ -384,8 +382,6 @@ public class WifiHook extends Hook {
 								properties  = getProperties(WifiSettings.class
 										.getName());
 							}
-
-							Log.d("DEBUG","Properties are"+	Arrays.toString(properties));
 							
 							int index = 0;
 							for (Object property : properties) {

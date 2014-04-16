@@ -109,7 +109,6 @@ public class ContactsHook extends Hook {
 												throws Throwable {
 										
 										Context context = contentProvider.getContext();
-										Boolean hooked = true;
 										
 										Object[] filteredGroups = Hook.queryConfigurationFromASA(context, new ContactsSettings(context));
 										Integer[] groups = Arrays.copyOf(filteredGroups, filteredGroups.length, Integer[].class);
@@ -148,7 +147,6 @@ public class ContactsHook extends Hook {
 													//APARENTEMENTE GRUPOS
 													
 													selection = (String) args[2];
-													hooked = false;
 												}
 											}
 										}

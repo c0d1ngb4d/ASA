@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.thesis.asa.Data.SecurityMode;
 import com.thesis.asa.provider.SettingsDB;
@@ -93,8 +91,8 @@ public class Utilities {
 		PackageManager manager = context.getPackageManager();
 
 		PackageInfo info = manager.getPackageInfo(pkgName,
-				manager.GET_ACTIVITIES | manager.GET_SERVICES
-						| manager.GET_PROVIDERS);
+				PackageManager.GET_ACTIVITIES | PackageManager.GET_SERVICES
+						| PackageManager.GET_PROVIDERS);
 		String processName = info.applicationInfo.processName;
 		processes.add(processName);
 		ActivityInfo[] activities = info.activities;
